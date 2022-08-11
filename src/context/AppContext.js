@@ -4,33 +4,53 @@ import { useState } from "react";
 export const AppContext = (props) => {
   const { children } = props;
 
-  const [product, setProduct] = useState({
-    input: "",
-  });
+  // las partes que hacen del form fueron a useState para obtener value
+  const [product, setProduct] = useState();
 
   const handleChange = (e) => {
-    setProduct({ ...product, [e.target.name]: e.target.value });
+    const newProd = e.target.value;
+    setProduct(newProd);
   };
 
-  const sendForm = (e) => {
-    e.preventDefault();
-    console.log(product.input + " " + item + " " + write.text);
-  };
-
-  const [item, setItem] = useState();
+  const [category, setCategory] = useState();
 
   const handleSelect = (e) => {
     const selected = e.target.value;
-    setItem(selected);
+    setCategory(selected);
   };
 
-  const [write, setWrite] = useState({
-    text: "",
-  });
+  const [text, setText] = useState();
 
   const handleArea = (e) => {
-    setWrite({ ...write, [e.target.name]: e.target.value });
+    const newText = e.target.value;
+    setText(newText);
   };
+
+  // boton envio formulario
+  const sendForm = (e) => {
+    e.preventDefault();
+    addChecklist();
+    console.log(product + " " + category + " " + text);
+  };
+
+  // parte importante: se iteran todas las partes anteriores en un array y se pone la funcion a ejecutar al enviar el form
+  const [check, setCheck] = useState([]);
+
+  const addChecklist = () => {
+    // newProduct se vuelve objeto para encerrarlos para luego convertir en array
+    const newProduct = { product, category, text };
+    setCheck([...check, newProduct]);
+  };
+
+  const [list, setList] = useState();
+
+  const handleRemoveItem = (id) => {
+    const list = check;
+    setList([...list, list.filter((id) => list.id !== parseInt(id))]);
+    console.log(list);
+  };
+
+  // IMPORTANTE: FUNCION BORRAR Y DISEÑO
 
   return (
     <Context.Provider
@@ -38,9 +58,9 @@ export const AppContext = (props) => {
         handleChange,
         sendForm,
         handleSelect,
-        item,
-        write,
         handleArea,
+        check,
+        handleRemoveItem,
       }}
     >
       {children}
