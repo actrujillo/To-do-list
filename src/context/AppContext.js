@@ -36,21 +36,22 @@ export const AppContext = (props) => {
   // parte importante: se iteran todas las partes anteriores en un array y se pone la funcion a ejecutar al enviar el form
   const [check, setCheck] = useState([]);
 
+  const [id, setId] = useState(0);
+
   const addChecklist = () => {
     // newProduct se vuelve objeto para encerrarlos para luego convertir en array
-    const newProduct = { product, category, text };
+    setId(id + 1);
+    const newProduct = { id, product, category, text };
     setCheck([...check, newProduct]);
   };
 
-  const [list, setList] = useState();
-
   const handleRemoveItem = (id) => {
-    const list = check;
-    setList([...list, list.filter((id) => list.id !== parseInt(id))]);
-    console.log(list);
+    const newProd = check.filter((item) => item.id !== id);
+    setCheck(newProd);
+    console.log(check);
   };
 
-  // IMPORTANTE: FUNCION BORRAR Y DISEÑO
+  // IMPORTANTE:  DISEÑO
 
   return (
     <Context.Provider

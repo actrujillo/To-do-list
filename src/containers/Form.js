@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../context/Context";
 import "../assets/css/Form.css";
-import { Link } from "react-router-dom";
 
 export const Form = () => {
   const { sendForm, handleChange, handleSelect, handleArea } =
@@ -12,6 +11,7 @@ export const Form = () => {
       <form action="" method="get" onSubmit={sendForm}>
         <h2>Let's start listing things...</h2>
         <input
+          required
           type="text"
           name="input"
           placeholder="Please insert your product here"
@@ -42,10 +42,7 @@ export const Form = () => {
           placeholder="Describe here if you wish..."
           onChange={handleArea}
         ></textarea>
-        <button>
-          <Link to="/checklist" />
-          Add
-        </button>
+        <button>Add</button>
       </form>
     </div>
   );

@@ -12,8 +12,8 @@ function App() {
         <AppContext>
           <Layout>
             <Routes>
-              <Route exact path="/" element={<Home />}></Route>
-              <Route exact path="/form" element={<Form />}></Route>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/form" element={<Form />} />
               <Route exact path="/checklist" element={<Checklist />} />
             </Routes>
           </Layout>

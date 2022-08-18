@@ -1,0 +1,10 @@
+.view-checklist{
+  bottom: 1rem;
+  left: 3rem;
+  position: absolute;
+  padding: .9rem 1rem;
+}
+
+.view-checklist img{
+  width: 50px;
+}
