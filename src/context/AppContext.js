@@ -29,6 +29,7 @@ export const AppContext = (props) => {
   // boton envio formulario
   const sendForm = (e) => {
     e.preventDefault();
+    e.target.reset();
     addChecklist();
     console.log(product + " " + category + " " + text);
   };
