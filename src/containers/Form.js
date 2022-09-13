@@ -37,7 +37,7 @@ export const Form = () => {
         <textarea
           name="text"
           id="description"
-          cols="40"
+          cols="30"
           rows="10"
           placeholder="Describe here if you wish..."
           onChange={handleArea}

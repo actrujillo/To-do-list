@@ -1,5 +1,4 @@
 import { AddItem } from "../components/AddItem";
-import { Link } from "react-router-dom";
 import { ViewChecklist } from "./ViewChecklist";
 import styled from "styled-components";
 

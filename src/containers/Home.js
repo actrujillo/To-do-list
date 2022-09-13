@@ -12,6 +12,9 @@ export const Home = () => {
     justify-content: center;
     text-align: center;
     width: 90%;
+    @media (min-width: 1279.98px) {
+      width: 55%;
+    }
   `;
 
   const H3 = styled.h3`

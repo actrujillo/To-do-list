@@ -59,10 +59,24 @@ export default function ItemList(props) {
     margin: 0 0 0.8rem;
     padding: 0.5rem;
     width: 75%;
+    @media (min-width: 1279.98px) {
+      width: 55%;
+    }
   `;
 
   const ImgItem = styled.img`
-    width: 30px;
+    width: 2rem;
+    @media (min-width: 1279.98px) {
+      width: 3rem;
+    }
+  `;
+
+  const DeleteItem = styled.img`
+    cursor: pointer;
+    width: 1rem;
+    @media (min-width: 1279.98px) {
+      width: 2rem;
+    }
   `;
 
   const DivText = styled.div`
@@ -95,7 +109,7 @@ export default function ItemList(props) {
         <PItem>{text}</PItem>
       </DivText>
       <ButtonItem onClick={handleDelete}>
-        <ImgItem src={trash} alt="delete item" />
+        <DeleteItem src={trash} alt="delete item" />
       </ButtonItem>
     </ItemList>
   );
